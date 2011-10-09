@@ -12,7 +12,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=soju BUILD_ID=GRK39F BUILD_DISPLAY_
 PRODUCT_PACKAGES += Torch
 
 ifdef OXYGEN_RELEASE
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3-NS
+    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3.1-NS
 else
     PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%m%d%Y)-NIGHTLY-NS
 endif

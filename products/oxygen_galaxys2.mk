@@ -16,7 +16,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 
 ifdef OXYGEN_RELEASE
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3-GalaxyS2
+    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3.1-GalaxyS2
 else
     PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%m%d%Y)-NIGHTLY-GalaxyS2
 endif
