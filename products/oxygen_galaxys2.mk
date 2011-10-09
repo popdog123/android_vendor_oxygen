@@ -18,5 +18,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ifdef OXYGEN_RELEASE
     PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3.1-GalaxyS2
 else
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%m%d%Y)-NIGHTLY-GalaxyS2
+    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%d%m%Y)-NIGHTLY-GalaxyS2
 endif

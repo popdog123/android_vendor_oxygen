@@ -14,5 +14,5 @@ PRODUCT_PACKAGES += Torch
 ifdef OXYGEN_RELEASE
     PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3.1-NS
 else
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%m%d%Y)-NIGHTLY-NS
+    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%d%m%Y)-NIGHTLY-NS
 endif

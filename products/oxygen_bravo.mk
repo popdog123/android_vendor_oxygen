@@ -20,5 +20,5 @@ PRODUCT_COPY_FILES += \
 ifdef OXYGEN_RELEASE
     PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3.1-Bravo
 else
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%m%d%Y)-NIGHTLY-Bravo
+    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%d%m%Y)-NIGHTLY-Bravo
 endif
