@@ -20,3 +20,5 @@ ifdef OXYGEN_RELEASE
 else
     PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%d%m%Y)-NIGHTLY-GalaxyS2
 endif
+
+PRODUCT_PACKAGE_OVERLAYS += vendor/oxygen/overlay/galaxys2
