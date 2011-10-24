@@ -12,7 +12,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9100 BUILD_ID=GRK39F BUILD_DISP
 PRODUCT_PACKAGES += Torch
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.additionalmounts=/mnt/emmc \
+    ro.additionalmounts=/mnt/emmc;/mnt/usbdisk \
     ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 
 ifdef OXYGEN_RELEASE
