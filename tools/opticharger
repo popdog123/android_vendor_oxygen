@@ -27,7 +27,7 @@ TMPDIR=/tmp/opticharge-$$
 
 if [ "$APKCERTS" = "" ];
 then
-    APKCERTS=$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files-$TARGET_BUILD_VARIANT.$LOGNAME/META/apkcerts.txt
+    APKCERTS=$OUT/obj/PACKAGING/target_files_intermediates/$TARGET_PRODUCT-target_files-$TARGET_BUILD_VARIANT.$USER/META/apkcerts.txt
     if [ ! -f "$APKCERTS" ];
     then
         echo "Set APKCERTS to the path to your apkcerts.txt file"
@@ -108,7 +108,7 @@ then
     cp $BASE/$1 $BASE/$1.old
 
     [ $QUIET ] || echo "Repacking apk.."
-    aapt p -0 res/raw -0 res/raw-en -F $NAME .
+    aapt p -0 .dat -0 .dict -F $NAME .
     
     [ $QUIET ] || echo "Resigning with cert: `echo $CERT`"
 

@@ -25,7 +25,11 @@ if [ -z "$OUT" -o ! -d "$OUT" ]; then
 	exit 1
 fi
 
-OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$LOGNAME.zip
+if [ "$TARGET_BUILD_TYPE" = "debug" ]; then
+    OTAPACKAGE=$OUT/${TARGET_PRODUCT}_debug-ota-$TARGET_BUILD_VARIANT.$USER.zip
+else
+    OTAPACKAGE=$OUT/$TARGET_PRODUCT-ota-$TARGET_BUILD_VARIANT.$USER.zip
+fi
 if [ ! -f "$OTAPACKAGE" ]; then
 	echo "$OTAPACKAGE doesn't exist!";
 	exit 1
@@ -33,7 +37,8 @@ fi
 
 OPTICHARGER=$ANDROID_BUILD_TOP/vendor/oxygen/tools/opticharger
 QUIET=-q
-DELETE_BINS="applypatch applypatch_static check_prereq recovery updater dump_image erase_image flash_image"
+DELETE_BINS="applypatch applypatch_static check_prereq recovery updater"
+
 
 REPACK=$OUT/repack.d
 printf "Sanitizing environment..."
@@ -66,14 +71,18 @@ $SED -i \
 # Delete unnecessary binaries
 ( cd $REPACK/ota/system/bin; echo $DELETE_BINS | xargs rm -f; )
 
+# Delete leftover wireless driver
+# rm -rf $REPACK/ota/system/lib/modules/*/kernel/drivers/net
+
 # No need for recovery
 rm -rf $REPACK/ota/recovery
 
-# Set date
-DATE=`date +%d%m%y-%H%M`
+# Strip modules
+[ -d $REPACK/ota/system/lib/modules ] && \
+	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
 # Determine what to name the new signed package
-if [ ! -z "$OXYGEN_RELEASE" ]; then
+if [ -z "$OXYGEN_NIGHTLY" ]; then
 	MODVERSION=`sed -n -e'/ro\.modversion/s/^.*Oxygen-//p' $REPACK/ota/system/build.prop`
 	: ${MODVERSION:=nightly}
 	OUTFILE=$OUT/update-oxygen-$MODVERSION-signed.zip
@@ -108,4 +117,3 @@ echo
 )
 
 exit 0
-
