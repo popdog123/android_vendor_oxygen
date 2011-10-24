@@ -7,7 +7,7 @@ PRODUCT_BRAND := samsung
 PRODUCT_DEVICE := galaxys2
 PRODUCT_MODEL := GT-I9100
 PRODUCT_MANUFACTURER := samsung
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9100 BUILD_ID=GRK39F BUILD_DISPLAY_ID=GWK74 BUILD_FINGERPRINT=google/passion/passion:2.3.6/GRK39F/189904:user/release-keys PRIVATE_BUILD_DESC="passion-user 2.3.6 GRK39F 189904 release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=GT-I9100 BUILD_ID=GRK39F BUILD_FINGERPRINT=google/passion/passion:2.3.6/GRK39F/189904:user/release-keys PRIVATE_BUILD_DESC="passion-user 2.3.6 GRK39F 189904 release-keys"
 
 PRODUCT_PACKAGES += Torch
 
@@ -15,10 +15,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.additionalmounts=/mnt/emmc;/mnt/usbdisk \
     ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
 
-ifdef OXYGEN_RELEASE
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2.3.1-GalaxyS2
-else
-    PRODUCT_PROPERTY_OVERRIDES += ro.modversion=Oxygen-2-$(shell date +%d%m%Y)-NIGHTLY-GalaxyS2
-endif
-
 PRODUCT_PACKAGE_OVERLAYS += vendor/oxygen/overlay/galaxys2
+
+PRODUCT_RELEASE_NAME := GalaxyS2
+PRODUCT_VERSION_DEVICE_SPECIFIC :=
+-include vendor/oxygen/products/common_versions.mk
