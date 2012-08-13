@@ -21,6 +21,8 @@ PRODUCT_COPY_FILES += \
     vendor/oxygen/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
     vendor/oxygen/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd \
     frameworks/base/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+    
+PRODUCT_COPY_FILES += vendor/oxygen/prebuilt/common/etc/init.d/10apps2sd:system/etc/init.d/10apps2sd
 
 PRODUCT_PACKAGES += \
     Camera \
