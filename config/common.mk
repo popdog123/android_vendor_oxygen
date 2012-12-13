@@ -26,10 +26,7 @@ PRODUCT_COPY_FILES += vendor/oxygen/prebuilt/common/etc/init.d/10apps2sd:system/
 
 PRODUCT_PACKAGES += \
     Camera \
-    LatinIME \
-    Superuser \
-    Superuser.apk \
-    su
+    LatinIME
 
 PRODUCT_PACKAGES += \
     VideoEditor \
